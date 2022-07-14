@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+ <div class="page-section">
+    <div class="container">
+      <h1 class="text-center wow fadeInUp">Register Today</h1>
+
+      <form class="contact-form mt-5" method="POST">
+        {% csrf_token %}
+        <div class="row mb-3">
+          <div class="col-sm-6 py-2 wow fadeInLeft">
+            {{ form.first_name|as_crispy_field }}
+          </div>
+          <div class="col-sm-6 py-2 wow fadeInRight">
+            {{ form.last_name|as_crispy_field }}
+          </div>
+          <div class="col-10 py-2 wow fadeInUp">
+            {{ form.email|as_crispy_field }}
+          </div>
+          <div class="col-sm-6 py-2 wow fadeInLeft">
+            {{ form.password1|as_crispy_field }}
+          </div>
+          <div class="col-sm-6 py-2 wow fadeInRight">
+            {{ form.password2|as_crispy_field }}
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary wow zoomIn">Submit</button>
+            <div class="border-top pt-3 mt-4">
+            <small class="text-muted">
+                Have An Account? <a class="ml-2" href="{% url 'login' %}">Login Now</a>
+            </small>
+            </div>
+      </form>
+    </div>
+  </div>
+{% endblock content %}
+{% block sidebar %}
+        <div class="col-md-4">
+          <div class="content-section">
+            <h3>Todo App</h3>
+            <p class='text-muted'>You can put any information here you'd like.
+
+            </p>
+          </div>
+        </div>
+{% endblock sidebar %}
